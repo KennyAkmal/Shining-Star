@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1NGANNIVERSARY - Optimized</title>
+    <link rel="stylesheet" href="styling/section-openning1.css">
+    <link rel="stylesheet" href="styling/section1.css">
+    <link rel="stylesheet" href="styling/section2.css">
+    <link rel="stylesheet" href="styling/section3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" 
+    rel="stylesheet">
+    <!-- Preload critical star images for smooth animation -->
+    <link rel="preload" href="assets/bintang.png" as="image">
+    <link rel="preload" href="assets/bintang-debut.png" as="image">
+    <link rel="preload" href="assets/bintang-anniversary.png" as="image">
+    <script
+    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+    type="module">
+    </script>
+    <style>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #121214;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+    <dotlottie-player
+        src="https://lottie.host/f6435d81-35b2-4bbd-9950-2558ffd718b2/FuhbgXmmyV.lottie"
+        background="transparent"
+        speed="1.15"
+        style="width: 300px; height: 300px"
+        loop
+        autoplay
+    ></dotlottie-player>
+    </div>
+    <!-- Anniversary Banner Section -->
+    <section class="anniversary-banner">
+        <div class="banner-stars"></div>
+        <div class="anniversary-title">
+            <h1>Happy Anniversary</h1>
+            <h2>Pingumoroll</h2>
+        </div>
+    </section>
+
+    <!-- Main Stars Section -->
+    <section>
+        <div class="parallax-container">
+            <!-- Background Elements -->
+            <div class="night-sky"></div>
+            <div class="stars"></div>
+            
+            <!-- Main Title -->
+            <div class="main-title">The memories</div>
+            
+            <!-- Stars Row 1 -->
+            <div class="stars-container">
+                <div class="main-star star-1 special-star debut-star" data-star-id="debut">
+                    <div class="star-text text-1">Debut Stream</div>
+                </div>
+                <div class="main-star star-2" data-star-id="first-stream">
+                    <div class="star-text text-2">First Stream</div>
+                </div>
+                <div class="main-star star-3" data-star-id="collaboration">
+                    <div class="star-text text-3">First Game</div>
+                </div>
+                <div class="main-star star-4" data-star-id="membership">
+                    <div class="star-text text-4">Membership Opening</div>
+                </div>
+            </div>
+
+            <!-- Stars Row 2 -->
+            <div class="stars-container-row2">
+                <div class="main-star star-5" data-star-id="valentine">
+                    <div class="star-text text-5">First Merch</div>
+                </div>
+                <div class="main-star star-7 special-star anniversary-star" data-star-id="anniversary">
+                    <div class="star-text text-7">Anniversary</div>
+                </div>
+            </div>
+
+            <!-- Clouds Container -->
+            <div class="clouds-container">
+                <div class="cloud cloud-2 cloud-left"></div>
+                <div class="cloud cloud-3 cloud-right"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Bagian Konten -->
+    <section class="content-section">
+        <div class="moon-bottom">
+            <img src="assets/bulan.png" alt="Bulan" width="100%" height="100%">
+        </div>
+
+       <div class="logo">PingArt</div>
+
+        <div class="photo-row">
+            <div class="photo-group">
+                <div class="polaroid-stack" title="Click to view gallery">
+                    <div class="polaroid polaroid-1" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-coko.webp');"></div>
+                        <div class="polaroid-caption">Fan Art #1</div>
+                    </div>
+                    <div class="polaroid polaroid-2" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-ruru2.webp');"></div>
+                        <div class="polaroid-caption">Fan Art #2</div>
+                    </div>
+                    <div class="polaroid polaroid-3" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-kai-lime.webp');"></div>
+                        <div class="polaroid-caption">Fan Art #3</div>
+                    </div>
+                </div>
+                <div class="photo-group-title">Fan Art Gallery</div>
+            </div>
+
+            <div class="photo-group">
+                <div class="polaroid-stack" title="Click to view gallery">
+                    <div class="polaroid polaroid-1" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-kentang.webp');"></div>
+                        <div class="polaroid-caption">Team Art #1</div>
+                    </div>
+                    <div class="polaroid polaroid-2" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-kentang2.webp');"></div>
+                        <div class="polaroid-caption">Team Art #2</div>
+                    </div>
+                    <div class="polaroid polaroid-3" title="Click to view this image">
+                        <div class="photo-content" style="background-image: url('fanart/fanart-izall.png');"></div>
+                        <div class="polaroid-caption">Team Art #3</div>
+                    </div>
+                </div>
+                <div class="photo-group-title">Team Art Showcase</div>
+            </div>
+        </div>
+
+        <div class="artists-row">
+           <div class="artist-card" title="Click to view artwork">
+                <div class="artist-photo">
+                    <img src="fanart/fanart-evai4.jpeg" alt="Artist A">
+                </div>
+                <div class="artist-name">Artist : Evai</div>
+            </div>
+            <div class="artist-card" title="Click to view artwork">
+                <div class="artist-photo">
+                    <img src="fanart/fanart-ruru.webp" alt="Artist A">
+                </div>
+                <div class="artist-name">Artist : Ruru</div>
+            </div>
+            <div class="artist-card" title="Click to view artwork">
+                <div class="artist-photo">
+                    <img src="fanart/fanart-ajijiw2.jpeg" alt="Artist A">
+                </div>
+                <div class="artist-name">Artist : Ajijiw</div>
+            </div>
+            <div class="artist-card" title="Click to view artwork">
+                <div class="artist-photo">
+                    <img src="fanart/fanart-reika.webp" alt="Artist A">
+                </div>
+                <div class="artist-name">Artist : Reika</div>
+            </div>
+            <div class="artist-card" title="Click to view artwork">
+                <div class="artist-photo">
+                    <img src="fanart/fanart-izall.png" alt="Artist A">
+                </div>
+                <div class="artist-name">Artist : Izall</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="content-section section-3">
+        <div class="logo">Starlight Letter</div>
+        <br><br>
+        <!-- Special Letter Content -->
+        <div class="special-letter-container single">
+            <!-- Kolom Kiri - Teks Surat -->
+            <div class="letter-side">
+                <br><br>
+                <h2 class="letter-title">Surat untuk sang bintang jatuh</h2>
+                <div class="letter-content" id="letterContent">
+                    Hai kamu, bintang jatuh yang sedang berulang tahun, selamat ulang tahun yaa. Ini ada surat untukmu dari kami, perwakilan pingstar, teman-teman kamu, dan juga moderator kamu, ada hadiahnya loh, semoga kamu suka yaa~
+                    <br><br>
+                    dan untuk kalian para pingstar ataupun penonton yang sedang melihat ini, maaf ya jika kami tidak mengundang kalian, dikarnakan terdapat beberapa hal yang harus dipertimbangkan dan beberapa kendala yang tidak bisa dijelaskan.
+                    <br><br>
+                    - Rakenn
+                </div>
+            </div>
+            <!-- Kolom Kanan - Amplop -->
+            <div class="letter-side">
+                <div class="letter-envelope-section">
+                    <div class="letter-image-container">
+                        <img src="fanart/amplop.png" 
+                             alt="Special Letter" 
+                             class="letter-image parallax-fade" 
+                             id="letterImage">
+                    </div>
+                    <h3 class="envelope-title" id="envelopeTitle"></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Card Popup Container (kept for star clicks) -->
+    <div id="starCardContainer" class="star-card-container">
+        <div class="star-card">
+            <div class="card-header">
+                <h3 id="cardTitle">Judul</h3>
+                <button id="closeCard" class="close-btn">&times;</button>
+            </div>
+            <div class="card-content">
+                <div class="card-image">
+                    <img id="cardImage" src="" alt="">
+                </div>
+                <p id="cardDescription" class="card-text"></p>
+            </div>
+        </div>
+    </div>
+     <script src="libs/gsap/gsap.min.js"></script>
+     <script src="libs/gsap/ScrollTrigger.min.js"></script>
+    <script src="effect/user-handling.js"></script>
+    <script src="effect/visual-effect.js"></script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+ .logo {
+     font-family: "Poppins", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     margin-right: 20px;
+     margin-top: 30px;
+     transform: translateY(-30px);
+     color: white;
+     font-size: 2.5rem;
+     text-align: right;
+     animation: slideDown 1s ease-out 0.5s forwards;
+     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+ }
+
+
+ .photo-row {
+     display: flex;
+     justify-content: space-between;
+     margin: 60px 0;
+     position: relative;
+     z-index: 10;
+ }
+
+ .photo-group-title {
+     font-family: "Poppins", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     color: white;
+     transition: all 0.3s ease;
+     text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+     z-index: 10;
+ }
+
+
+ .polaroid-stack {
+     position: relative;
+     width: 240px;
+     height: 260px;
+     margin: 0 auto 30px;
+     transition: all 0.3s ease;
+     cursor: pointer;
+ }
+
+ .polaroid-stack:hover {
+     transform: scale(1.05);
+     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+ }
+
+ @keyframes polaroidStackPulse {
+     0% {
+         transform: scale(1);
+     }
+
+     50% {
+         transform: scale(1.2);
+         filter: brightness(1.3);
+     }
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ .polaroid-stack-clicked {
+     animation: polaroidStackPulse 0.6s ease-out;
+     z-index: 20;
+ }
+
+ .polaroid {
+     position: absolute;
+     width: 220px;
+     height: 240px;
+     background-color: white;
+     border: 8px solid white;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+     transition: transform 0.3s ease, filter 0.3s ease;
+     z-index: 1;
+ }
+
+ .polaroid-1 {
+     top: 0;
+     left: 0;
+     transform: rotate(-5deg);
+     z-index: 3;
+ }
+
+ .polaroid-2 {
+     top: 5px;
+     left: 5px;
+     transform: rotate(2deg);
+     z-index: 2;
+ }
+
+ .polaroid-3 {
+     top: 10px;
+     left: 10px;
+     transform: rotate(7deg);
+     z-index: 1;
+ }
+
+ .photo-content {
+     width: 100%;
+     height: 85%;
+     background-color: #30c9d4;
+     background-size: cover;
+     background-position: center;
+     transition: all 0.3s ease;
+ }
+
+ .polaroid-caption {
+     font-family: "Poppins", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     height: 15%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 12px;
+     color: #333;
+     text-align: center;
+     transition: all 0.3s ease;
+ }
+
+ .photo-group {
+     text-align: center;
+     width: 48%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     transition: all 0.5s ease;
+ }
+
+ .photo-group:hover .photo-group-title {
+     transform: translateY(-5px);
+     color: #ffeb3b;
+     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+ }
+
+ .photo-group-title {
+     font-size: 28px;
+     font-weight: bold;
+     margin-top: 25px;
+     color: white;
+     transition: all 0.3s ease;
+     text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+ }
+
+
+ .star-card.fan-art-card {
+     background: linear-gradient(145deg, #1a1a4a, #008066);
+     box-shadow: 0 0 30px rgba(0, 255, 191, 0.3);
+ }
+
+ .star-card.fan-art-card .card-header {
+     background: linear-gradient(145deg, #008066, #00cc99);
+ }
+
+ .star-card.fan-art-card .card-header h3 {
+     color: #00ffbf;
+     text-shadow: 0 0 10px rgba(0, 255, 191, 0.5);
+ }
+
+ .star-card.team-art-card {
+     background: linear-gradient(145deg, #1a1a4a, #800060);
+     box-shadow: 0 0 30px rgba(255, 0, 191, 0.3);
+ }
+
+ .star-card.team-art-card .card-header {
+     background: linear-gradient(145deg, #800060, #cc0099);
+ }
+
+ .star-card.team-art-card .card-header h3 {
+     color: #ff00bf;
+     text-shadow: 0 0 10px rgba(255, 0, 191, 0.5);
+ }
+
+ @keyframes cardPulseFanArt {
+     0% {
+         box-shadow: 0 0 30px rgba(0, 255, 191, 0.3);
+     }
+
+     50% {
+         box-shadow: 0 0 50px rgba(0, 255, 191, 0.5);
+     }
+
+     100% {
+         box-shadow: 0 0 30px rgba(0, 255, 191, 0.3);
+     }
+ }
+
+ .star-card.fan-art-card {
+     animation: cardPulseFanArt 2s infinite;
+ }
+
+ @keyframes cardPulseTeamArt {
+     0% {
+         box-shadow: 0 0 30px rgba(255, 0, 191, 0.3);
+     }
+
+     50% {
+         box-shadow: 0 0 50px rgba(255, 0, 191, 0.5);
+     }
+
+     100% {
+         box-shadow: 0 0 30px rgba(255, 0, 191, 0.3);
+     }
+ }
+
+ .star-card.team-art-card {
+     animation: cardPulseTeamArt 2s infinite;
+ }
+
+
+ .artists-row {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     margin-top: 80px;
+     position: relative;
+     z-index: 6;
+     padding-bottom: 80px;
+ }
+
+
+ .artist-card {
+     width: 18%;
+     z-index: 6;
+     text-align: center;
+     margin-bottom: 90px;
+     transition: all 0.3s ease;
+ }
+
+ .artist-card:hover {
+     transform: translateY(-10px);
+ }
+
+ .artist-photo {
+     width: 100%;
+     aspect-ratio: 1/1;
+     border-radius: 10px;
+     z-index: 6;
+     overflow: hidden;
+     margin-bottom: 25px;
+     position: relative;
+     box-shadow: 15px 10px 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .artist-photo img {
+     width: 100%;
+     height: 100%;
+     z-index: 6;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+
+ .artist-card:hover .artist-photo img {
+     transform: scale(1.1);
+ }
+
+ .artist-name {
+     font-family: "Poppins", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     font-size: 20px;
+     z-index: 6;
+     color: white;
+     text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+     transition: color 0.3s ease;
+ }
+
+ .artist-card:hover .artist-name {
+     color: #ffeb3b;
+     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+ }
+
+ @media (max-width: 1200px) {
+     .artist-card {
+         width: 45%;
+         margin: 15px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .artist-card {
+         width: 80%;
+     }
+ }
+
+ .clouds-container {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     height: 400px;
+     z-index: 5;
+     left: 0;
+     right: 0;
+     overflow: visible;
+     pointer-events: none;
+ }
+
+
+ .cloud {
+     position: absolute;
+     background-size: cover;
+     background-repeat: no-repeat;
+     z-index: 2;
+     transition: transform 0.5s ease;
+     will-change: transform, opacity;
+     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+     pointer-events: none;
+ }
+
+
+
+
+ .polaroid-stack {
+     cursor: pointer;
+     user-select: none;
+ }
+
+ .polaroid {
+     cursor: pointer;
+     user-select: none;
+ }
+
+ .artist-card {
+     cursor: pointer;
+     user-select: none;
+ }
+
+
+ .image-viewer-image {
+     transition: opacity 0.3s ease;
+ }
+
+ .image-viewer-image.loading {
+     opacity: 0.5;
+ }
+
+
+ @media (max-width: 768px) {
+     .image-viewer-container {
+         max-width: 95vw;
+         max-height: 95vh;
+         padding: 20px;
+     }
+
+     .image-viewer-image {
+         max-height: 60vh;
+     }
+
+     .image-viewer-close {
+         top: -40px;
+         right: -10px;
+         font-size: 24px;
+         width: 35px;
+         height: 35px;
+     }
+
+     .image-viewer-title {
+         font-size: 18px;
+         margin-top: 15px;
+     }
+
+     .image-viewer-navigation {
+         flex-direction: column;
+         gap: 10px;
+         margin-top: 15px;
+     }
+
+     .nav-btn {
+         padding: 8px 16px;
+         font-size: 14px;
+     }
+ }
+
+ @media (max-width: 480px) {
+     .image-viewer-container {
+         max-width: 98vw;
+         max-height: 98vh;
+         padding: 10px;
+     }
+
+     .image-viewer-image {
+         max-height: 50vh;
+     }
+
+     .image-viewer-title {
+         font-size: 16px;
+         margin-top: 10px;
+     }
+
+     .image-viewer-close {
+         top: -30px;
+         right: -5px;
+         font-size: 20px;
+         width: 30px;
+         height: 30px;
+     }
+ }
+
+
+ .polaroid-stack:hover .polaroid-caption {
+     color: #007acc;
+     font-weight: bold;
+ }
+
+ .artist-card:hover .artist-name {
+     transform: translateY(-2px);
+ }
+
+
+ @keyframes imageLoading {
+     0% {
+         opacity: 0.5;
+     }
+
+     50% {
+         opacity: 0.8;
+     }
+
+     100% {
+         opacity: 0.5;
+     }
+ }
+
+ .image-viewer-image.loading {
+     animation: imageLoading 1.5s infinite;
+ }
+
+
+ .polaroid-stack,
+ .polaroid,
+ .artist-card {
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ }
+
+
+ .polaroid-stack:focus,
+ .polaroid:focus,
+ .artist-card:focus {
+     outline: 2px solid #007acc;
+     outline-offset: 2px;
+ }
+
+ .nav-btn:focus,
+ .image-viewer-close:focus {
+     outline: 2px solid #ffffff;
+     outline-offset: 2px;
+ }
+
+
+ @media (prefers-contrast: high) {
+
+     .image-viewer-close,
+     .nav-btn {
+         background: rgba(255, 255, 255, 0.9);
+         color: #000;
+     }
+
+     .image-viewer-title {
+         background: rgba(0, 0, 0, 0.8);
+         padding: 10px;
+         border-radius: 5px;
+     }
+ }
+
+
+ @media (prefers-reduced-motion: reduce) {
+     .image-viewer-container {
+         animation: none;
+     }
+
+     #imageViewer.active {
+         animation: none;
+     }
+
+     .polaroid-stack,
+     .polaroid,
+     .artist-card {
+         transition: none;
+     }
+ }

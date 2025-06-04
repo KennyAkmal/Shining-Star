@@ -1,0 +1,894 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+}
+
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.night-sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a0a2a;
+    z-index: -2;
+}
+
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, white, transparent),
+        radial-gradient(1px 1px at 20% 20%, white, transparent),
+        radial-gradient(1px 1px at 30% 30%, white, transparent),
+        radial-gradient(1.5px 1.5px at 40% 40%, white, transparent),
+        radial-gradient(2px 2px at 50% 10%, white, transparent),
+        radial-gradient(2px 2px at 60% 30%, white, transparent),
+        radial-gradient(1px 1px at 70% 40%, white, transparent),
+        radial-gradient(1.5px 1.5px at 80% 50%, white, transparent),
+        radial-gradient(1px 1px at 90% 60%, white, transparent),
+        radial-gradient(2px 2px at 15% 70%, white, transparent),
+        radial-gradient(1px 1px at 25% 80%, white, transparent),
+        radial-gradient(1.5px 1.5px at 35% 90%, white, transparent),
+        radial-gradient(1px 1px at 45% 70%, white, transparent),
+        radial-gradient(2px 2px at 55% 80%, white, transparent),
+        radial-gradient(1px 1px at 65% 90%, white, transparent),
+        radial-gradient(1.5px 1.5px at 75% 70%, white, transparent),
+        radial-gradient(2px 2px at 85% 80%, white, transparent),
+        radial-gradient(1px 1px at 95% 90%, white, transparent),
+        radial-gradient(1.5px 1.5px at 10% 50%, white, transparent),
+        radial-gradient(1px 1px at 20% 60%, white, transparent),
+        radial-gradient(2px 2px at 30% 50%, white, transparent);
+    z-index: -1;
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    transition: transform 0.3s ease-out;
+}
+
+
+.stars-container {
+    position: absolute;
+    width: 90%;
+    max-width: 1000px;
+    height: 300px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+    gap: 60px;
+}
+
+
+.stars-container-row2 {
+    position: absolute;
+    width: 80%;
+    max-width: 800px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    z-index: 6;
+    gap: 330px;
+}
+
+
+.main-star {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    background-image: url('../assets/%%URL0%%');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+
+    transform-origin: center;
+    transform: translateY(-100px);
+
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+
+.main-star.animate-star {
+    animation: fallingStar 1s forwards;
+}
+
+
+.star-1 {
+    background-image: url('../assets/%%URL2%%');
+    width: 180px;
+    height: 180px;
+}
+
+
+.star-7 {
+    background-image: url('../assets/%%URL3%%');
+    width: 180px;
+    height: 180px;
+}
+
+
+.star-1 .star-text {
+    top: 170px;
+}
+
+.star-7 .star-text {
+    top: 170px;
+}
+
+
+.star-1:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
+}
+
+
+.star-7:hover {
+    filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.8));
+}
+
+
+.star-1:hover .star-text {
+    color: #ffd700 !important;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8) !important;
+}
+
+
+.star-7:hover .star-text {
+    color: #00bfff !important;
+    text-shadow: 0 0 12px rgba(0, 191, 255, 0.8) !important;
+}
+
+
+.main-star:hover {
+    filter: drop-shadow(0 0 10px #ffd700);
+    z-index: 10;
+    transition: all 0.05s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+.main-star:hover .star-text {
+    color: #ffeb3b !important;
+    transform: translateX(-50%) translateY(-10px) !important;
+    text-shadow: 0 0 12px rgba(255, 235, 59, 0.8) !important;
+    letter-spacing: 1px !important;
+}
+
+
+@keyframes fallingStar {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+    85% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.star-1.animate-star {
+    animation: fallingStarDebut 1s forwards;
+}
+
+.star-7.animate-star {
+    animation: fallingStarAnniversary 1s forwards;
+}
+
+
+@keyframes fallingStarDebut {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(-15deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(10px) rotate(-5deg);
+    }
+
+    85% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+
+@keyframes fallingStarAnniversary {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(15deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(10px) rotate(5deg);
+    }
+
+    85% {
+        transform: translateY(-5px) rotate(-5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+
+.star-text {
+    position: absolute;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 120px;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+
+.animate-star .star-text {
+    animation: fadeInText 0.5s forwards 0.5s;
+
+}
+
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.special-star {
+    z-index: 3;
+}
+
+
+@keyframes starPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(2.5);
+        filter: brightness(1.8);
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes starPulseDebut {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(2.5) rotate(-15deg);
+        filter: brightness(1.8) hue-rotate(180deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes starPulseAnniversary {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(2.5) rotate(15deg);
+        filter: brightness(1.8) hue-rotate(45deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes expandPulse {
+    0% {
+        transform: scale(0.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.star-clicked {
+    animation: starPulse 1s ease-out;
+    z-index: 20;
+}
+
+.star-2 {
+    animation-delay: 0.4s;
+}
+
+.star-3 {
+    animation-delay: 0.7s;
+}
+
+.star-4 {
+    animation-delay: 1.0s;
+}
+
+.star-5 {
+    animation-delay: 1.3s;
+}
+
+.star-6 {
+    animation-delay: 1.6s;
+}
+
+
+
+.star-text {
+    position: absolute;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 120px;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeInText 0.5s forwards;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+
+.main-star:hover .star-text {
+    color: #ffeb3b !important;
+    transform: translateX(-50%) translateY(-10px);
+    text-shadow: 0 0 12px rgba(255, 235, 59, 0.8) !important;
+    letter-spacing: 1px;
+}
+
+.star-card-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.star-card-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.star-card {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    max-height: 600px;
+    background: linear-gradient(145deg, #ffffff, #9ba5ff);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px #EDC371;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.star-card-container.active .star-card {
+    transform: scale(1);
+}
+
+.card-header {
+    background: linear-gradient(145deg, #004080, #0066cc);
+    ;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header h3 {
+    color: #F2F7FF;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin: 0;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px #000000;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #F2F7FF;
+    font-size: 1.8rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+    color: #000000;
+}
+
+.card-image {
+    width: 70%;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.card-text {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+
+.star-card.debut-card {
+    background: linear-gradient(145deg, #ffffff, #9ba5ff);
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+}
+
+.star-card.debut-card .card-header {
+    background: linear-gradient(145deg, rgb(0, 64, 128), rgb(0, 102, 204));
+}
+
+.star-card.debut-card .card-header h3 {
+    color: rgb(242, 242, 242);
+    text-shadow: 0 0 10px rgba(2, 2, 2, 0.5);
+}
+
+.star-card.anniversary-card {
+    background: linear-gradient(145deg, #ffffff, #806000);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    color: #F2F7FF;
+}
+
+.star-card.anniversary-card .card-header {
+    background: linear-gradient(145deg, #806000, #8d6a00);
+}
+
+.star-card.anniversary-card .card-header h3 {
+    color: #f2f2f2;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+
+@keyframes cardPulse {
+    0% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.star-card {
+    animation: cardPulse 2s infinite;
+}
+
+.star-card.debut-card {
+    animation: cardPulse 2s infinite;
+    animation-name: cardPulseDebut;
+}
+
+@keyframes cardPulseDebut {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(0, 191, 255, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    }
+}
+
+.star-card.anniversary-card {
+    animation: cardPulse 2s infinite;
+    animation-name: cardPulseAnniversary;
+}
+
+@keyframes cardPulseAnniversary {
+    0% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .star-card {
+        width: 90%;
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.text-1 {
+    animation-delay: 0.6s;
+}
+
+.text-2 {
+    animation-delay: 0.9s;
+}
+
+.text-3 {
+    animation-delay: 1.2s;
+}
+
+.text-4 {
+    animation-delay: 1.5s;
+}
+
+.text-5 {
+    animation-delay: 1.8s;
+}
+
+.text-6 {
+    animation-delay: 2.1s;
+}
+
+.text-7 {
+    animation-delay: 2.4s;
+}
+
+
+.moon-bottom {
+    position: absolute;
+    top: -350px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5%);
+    width: 1000px;
+    height: 1000px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: visible;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+
+.cloud {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
+    transition: transform 0.5s ease;
+    will-change: transform, opacity;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.cloud-right {
+    background-image: url('../assets/%%URL16%%');
+    transform: translateX(5%);
+}
+
+.cloud-left {
+    background-image: url('../assets/%%URL17%%');
+    transform: translateX(-5%);
+}
+
+.cloud-2 {
+    width: 1000px;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.cloud-3 {
+    width: 1000px;
+    height: 290px;
+    bottom: 0;
+    right: 0;
+}
+
+
+.clouds-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    overflow: visible;
+}
+
+@keyframes cloudInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateX(-5%);
+        opacity: 1;
+    }
+}
+
+
+@keyframes cloudInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateX(5%);
+        opacity: 1;
+    }
+}
+
+
+@keyframes cloudOutLeft {
+    0% {
+        transform: translateX(-5%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0.3;
+    }
+}
+
+
+@keyframes cloudOutRight {
+    0% {
+        transform: translateX(5%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0.3;
+    }
+}
+
+
+.cloud-in-left {
+    animation: cloudInLeft 1.2s ease-out forwards;
+}
+
+.cloud-in-right {
+    animation: cloudInRight 1.2s ease-out forwards;
+}
+
+.cloud-out-left {
+    animation: cloudOutLeft 1.2s ease-out forwards;
+}
+
+.cloud-out-right {
+    animation: cloudOutRight 1.2s ease-out forwards;
+}
+
+
+.main-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    position: absolute;
+    margin-top: 50px;
+    right: 5%;
+    transform: translateY(-30px);
+    color: white;
+    font-size: 2.5rem;
+    text-align: right;
+    opacity: 0;
+    animation: slideDown 1s ease-out 0.5s forwards;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.content-section {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0a0a2a, #1a1a4a);
+    padding: 50px 10%;
+    padding-top: 400px;
+    z-index: 2;
+    margin-top: 0;
+}
+
+.section-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 3;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.right::after {
+    left: -12px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .stars-container,
+    .stars-container-row2 {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+    .main-star {
+        margin: 50px;
+    }
+
+    .cloud {
+        transform: scale(0.5);
+    }
+
+    .cloud-1 {
+        left: -40px;
+    }
+
+    .cloud-3 {
+        right: -40px;
+    }
+
+    .main-title {
+        right: 10%;
+        font-size: 2rem;
+    }
+
+
+    .right {
+        left: 0;
+    }
+
+    .moon-bottom {
+        width: 600px;
+        height: 600px;
+        top: -200px;
+    }
+}
