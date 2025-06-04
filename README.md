@@ -1,6 +1,6 @@
 # <h1 align="center"> 💫 P1NGBIRTHDAY: SHINING STAR 💫 </h1>
 <p>A special parallax website created as a heartfelt gift to celebrate the 1st Anniversary of Pingumoroll's !  
-Crafted with by our team using **HTML, CSS, and JavaScript (GSAP)** to deliver a stunning visual experience. 🎉🎊 </p>
+Crafted with by our team using <b>HTML, CSS, and JavaScript (GSAP)</b> to deliver a stunning visual experience. 🎉🎊 </p>
 
 ## <h2>📌 Live Demo</h2>
 <p>Soon 📅</p>
