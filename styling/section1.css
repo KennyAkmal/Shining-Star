@@ -18,7 +18,7 @@ body {
     overflow: hidden;
 }
 
-
+/* Background Langit Malam */
 .night-sky {
     position: fixed;
     top: 0;
@@ -29,14 +29,14 @@ body {
     z-index: -2;
 }
 
-
+/* Bintang-bintang kecil - Lebih merata di seluruh langit */
 .stars {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image:
+    background-image: 
         radial-gradient(1px 1px at 10% 10%, white, transparent),
         radial-gradient(1px 1px at 20% 20%, white, transparent),
         radial-gradient(1px 1px at 30% 30%, white, transparent),
@@ -64,7 +64,7 @@ body {
     transition: transform 0.3s ease-out;
 }
 
-
+/* Container untuk bintang utama - sekarang di tengah */
 .stars-container {
     position: absolute;
     width: 90%;
@@ -79,7 +79,7 @@ body {
     gap: 60px;
 }
 
-
+/* Baris kedua bintang */
 .stars-container-row2 {
     position: absolute;
     width: 80%;
@@ -95,44 +95,42 @@ body {
     gap: 330px;
 }
 
-
+/* Bintang utama - Awalnya tidak terlihat */
 .main-star {
     position: relative;
     width: 180px;
     height: 180px;
-    background-image: url('../assets/%%URL0%%');
+    background-image: url('../assets/bintang.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0;
-
+    background-position: center; 
+    opacity: 0; /* Mulai dengan tidak terlihat */
     transform-origin: center;
-    transform: translateY(-100px);
-
+    transform: translateY(-100px); /* Posisi awal di atas */
     transition: all 0.5s ease;
     cursor: pointer;
 }
 
-
+/* Animasi untuk bintang jatuh saat scrolling ke section 1 */
 .main-star.animate-star {
     animation: fallingStar 1s forwards;
 }
 
-
+/* Bintang khusus untuk star-1 (Debut) */
 .star-1 {
-    background-image: url('../assets/%%URL2%%');
+    background-image: url('../assets/bintang-debut.png');
     width: 180px;
     height: 180px;
 }
 
-
+/* Bintang khusus untuk star-7 (Anniversary) */
 .star-7 {
-    background-image: url('../assets/%%URL3%%');
+    background-image: url('../assets/bintang-anniversary.png');
     width: 180px;
     height: 180px;
 }
 
-
+/* Menyesuaikan posisi teks untuk bintang khusus karena ukurannya berbeda */
 .star-1 .star-text {
     top: 170px;
 }
@@ -141,66 +139,63 @@ body {
     top: 170px;
 }
 
-
+/* Efek khusus untuk star-1 saat hover */
 .star-1:hover {
     filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
 }
 
-
+/* Efek khusus untuk star-7 saat hover */
 .star-7:hover {
-    filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.8));
+    filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.8)); 
 }
 
-
+/* Efek khusus untuk teks pada star-1 saat hover */
 .star-1:hover .star-text {
-    color: #ffd700 !important;
+    color: #ffd700 !important ;
     text-shadow: 0 0 12px rgba(255, 215, 0, 0.8) !important;
 }
 
-
+/* Efek khusus untuk teks pada star-7 saat hover */
 .star-7:hover .star-text {
-    color: #00bfff !important;
-    text-shadow: 0 0 12px rgba(0, 191, 255, 0.8) !important;
+    color: #00bfff !important; 
+    text-shadow: 0 0 12px rgba(0, 191, 255, 0.8)!important;
 }
 
-
+/* Efek hover pada bintang - diperkuat */
 .main-star:hover {
-    filter: drop-shadow(0 0 10px #ffd700);
+    filter: drop-shadow(0 0 10px #ffd700); 
     z-index: 10;
     transition: all 0.05s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
+/* Efek hover pada teks bintang - diperkuat */
 .main-star:hover .star-text {
-    color: #ffeb3b !important;
-    transform: translateX(-50%) translateY(-10px) !important;
-    text-shadow: 0 0 12px rgba(255, 235, 59, 0.8) !important;
-    letter-spacing: 1px !important;
+    color: #ffeb3b !important; 
+    transform: translateX(-50%) translateY(-10px) !important; 
+    text-shadow: 0 0 12px rgba(255, 235, 59, 0.8) !important; 
+    letter-spacing: 1px !important; 
 }
 
-
+/* Animasi bintang jatuh yang diubah */
 @keyframes fallingStar {
     0% {
         opacity: 0;
         transform: translateY(-100px);
     }
-
     70% {
         opacity: 1;
         transform: translateY(10px);
     }
-
     85% {
         transform: translateY(-5px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
+/* Animasi untuk bintang khusus */
 .star-1.animate-star {
     animation: fallingStarDebut 1s forwards;
 }
@@ -209,54 +204,48 @@ body {
     animation: fallingStarAnniversary 1s forwards;
 }
 
-
+/* Animasi falling star khusus untuk bintang Debut */
 @keyframes fallingStarDebut {
     0% {
         opacity: 0;
         transform: translateY(-100px) rotate(-15deg);
     }
-
     70% {
         opacity: 1;
         transform: translateY(10px) rotate(-5deg);
     }
-
     85% {
         transform: translateY(-5px) rotate(5deg);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0) rotate(0);
     }
 }
 
-
+/* Animasi falling star khusus untuk bintang Anniversary */
 @keyframes fallingStarAnniversary {
     0% {
         opacity: 0;
         transform: translateY(-100px) rotate(15deg);
     }
-
     70% {
         opacity: 1;
         transform: translateY(10px) rotate(5deg);
     }
-
     85% {
         transform: translateY(-5px) rotate(-5deg);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0) rotate(0);
     }
 }
 
-
+/* Teks di bawah bintang - awalnya tidak terlihat */
 .star-text {
     position: absolute;
-    color: white !important;
+    color: white !important; 
     font-weight: bold;
     text-align: center;
     font-size: 1.2rem;
@@ -265,91 +254,54 @@ body {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s ease; 
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important; 
 }
 
-
+/* Animasi untuk teks saat bintang jatuh */
 .animate-star .star-text {
-    animation: fadeInText 0.5s forwards 0.5s;
-
+    animation: fadeInText 0.5s forwards 0.5s; /* Delay agar muncul setelah bintang jatuh */
 }
 
-
+/* Animasi teks muncul */
 @keyframes fadeInText {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
 }
 
-
+/* Kelas tambahan untuk bintang khusus */
 .special-star {
-    z-index: 3;
+    z-index: 3; 
 }
 
-
+/* Menambahkan efek klik pada bintang */
 @keyframes starPulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(2.5);
-        filter: brightness(1.8);
-    }
-
-    100% {
-        transform: scale(4);
-        opacity: 0;
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(2.5); filter: brightness(1.8); }
+    100% { transform: scale(4); opacity: 0; }
 }
 
 @keyframes starPulseDebut {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(2.5) rotate(-15deg);
-        filter: brightness(1.8) hue-rotate(180deg);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(2.5) rotate(-15deg); filter: brightness(1.8) hue-rotate(180deg); }
+    100% { transform: scale(1); }
 }
 
 
 @keyframes starPulseAnniversary {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(2.5) rotate(15deg);
-        filter: brightness(1.8) hue-rotate(45deg);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(2.5) rotate(15deg); filter: brightness(1.8) hue-rotate(45deg); }
+    100% { transform: scale(1); }
 }
 
-
+/* Animasi untuk efek pulse yang meluas */
 @keyframes expandPulse {
-    0% {
-        transform: scale(0.1);
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: scale(3);
-        opacity: 0;
-    }
+    0% { transform: scale(0.1); opacity: 0.8; }
+    100% { transform: scale(3); opacity: 0; }
 }
 
 .star-clicked {
@@ -357,31 +309,17 @@ body {
     z-index: 20;
 }
 
-.star-2 {
-    animation-delay: 0.4s;
-}
-
-.star-3 {
-    animation-delay: 0.7s;
-}
-
-.star-4 {
-    animation-delay: 1.0s;
-}
-
-.star-5 {
-    animation-delay: 1.3s;
-}
-
-.star-6 {
-    animation-delay: 1.6s;
-}
+.star-2 { animation-delay: 0.4s; }
+.star-3 { animation-delay: 0.7s; }
+.star-4 { animation-delay: 1.0s; }
+.star-5 { animation-delay: 1.3s; }
+.star-6 { animation-delay: 1.6s; }
 
 
-
+/* Teks di bawah bintang */
 .star-text {
     position: absolute;
-    color: white !important;
+    color: white !important; 
     font-weight: bold;
     text-align: center;
     font-size: 1.2rem;
@@ -391,18 +329,17 @@ body {
     transform: translateX(-50%);
     opacity: 0;
     animation: fadeInText 0.5s forwards;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.3s ease; 
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important; 
 }
 
-
+/* Efek hover pada teks bintang */
 .main-star:hover .star-text {
-    color: #ffeb3b !important;
+    color: #ffeb3b !important; 
     transform: translateX(-50%) translateY(-10px);
     text-shadow: 0 0 12px rgba(255, 235, 59, 0.8) !important;
     letter-spacing: 1px;
 }
-
 .star-card-container {
     position: fixed;
     top: 0;
@@ -429,28 +366,24 @@ body {
     height: 100%;
     max-width: 1000px;
     max-height: 600px;
-    background: linear-gradient(145deg, #ffffff, #9ba5ff);
+    background: linear-gradient(145deg, #ffffff , #9ba5ff);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 0 30px #EDC371;
     transform: scale(0.9);
     transition: all 0.3s ease;
 }
-
 .star-card-container.active .star-card {
     transform: scale(1);
 }
-
 .card-header {
-    background: linear-gradient(145deg, #004080, #0066cc);
-    ;
+    background: linear-gradient(145deg, #004080, #0066cc);;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
-
 .card-header h3 {
     color: #F2F7FF;
     font-family: "Poppins", sans-serif;
@@ -460,7 +393,6 @@ body {
     font-size: 1.5rem;
     text-shadow: 0 0 10px #000000;
 }
-
 .close-btn {
     background: none;
     border: none;
@@ -475,17 +407,14 @@ body {
     border-radius: 50%;
     transition: all 0.2s ease;
 }
-
 .close-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transform: scale(1.1);
 }
-
 .card-content {
     padding: 20px;
     color: #000000;
 }
-
 .card-image {
     width: 70%;
     overflow: hidden;
@@ -513,51 +442,37 @@ body {
     line-height: 1.6;
 }
 
-
+/* Modifikasi khusus untuk card bintang spesial */
 .star-card.debut-card {
-    background: linear-gradient(145deg, #ffffff, #9ba5ff);
+    background: linear-gradient(145deg, #ffffff , #9ba5ff);
     box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
 }
 
 .star-card.debut-card .card-header {
     background: linear-gradient(145deg, rgb(0, 64, 128), rgb(0, 102, 204));
 }
-
 .star-card.debut-card .card-header h3 {
     color: rgb(242, 242, 242);
     text-shadow: 0 0 10px rgba(2, 2, 2, 0.5);
 }
-
 .star-card.anniversary-card {
     background: linear-gradient(145deg, #ffffff, #806000);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
     color: #F2F7FF;
 }
-
 .star-card.anniversary-card .card-header {
     background: linear-gradient(145deg, #806000, #8d6a00);
 }
-
 .star-card.anniversary-card .card-header h3 {
     color: #f2f2f2;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
-
-
+/* Animasi untuk card */
 @keyframes cardPulse {
-    0% {
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-    }
+    0% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
 }
-
 .star-card {
     animation: cardPulse 2s infinite;
 }
@@ -568,17 +483,9 @@ body {
 }
 
 @keyframes cardPulseDebut {
-    0% {
-        box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 50px rgba(0, 191, 255, 0.5);
-    }
-
-    100% {
-        box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
-    }
+    0% { box-shadow: 0 0 30px rgba(0, 191, 255, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(0, 191, 255, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(0, 191, 255, 0.3); }
 }
 
 .star-card.anniversary-card {
@@ -587,112 +494,82 @@ body {
 }
 
 @keyframes cardPulseAnniversary {
-    0% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
-    }
-
-    100% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-    }
+    0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.5); }
+    100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
 }
 
-
+/* Responsive design untuk mobile */
 @media screen and (max-width: 768px) {
     .star-card {
         width: 90%;
     }
-
+    
     .card-header h3 {
         font-size: 1.2rem;
     }
-
+    
     .card-content {
         padding: 15px;
     }
-
+    
     .card-text {
         font-size: 0.9rem;
     }
 }
-
-
+/* Animasi teks muncul */
 @keyframes fadeInText {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
 }
 
-.text-1 {
-    animation-delay: 0.6s;
-}
+.text-1 { animation-delay: 0.6s; }
+.text-2 { animation-delay: 0.9s; }
+.text-3 { animation-delay: 1.2s; }
+.text-4 { animation-delay: 1.5s; }
+.text-5 { animation-delay: 1.8s; }
+.text-6 { animation-delay: 2.1s; }
+.text-7 { animation-delay: 2.4s; }
 
-.text-2 {
-    animation-delay: 0.9s;
-}
-
-.text-3 {
-    animation-delay: 1.2s;
-}
-
-.text-4 {
-    animation-delay: 1.5s;
-}
-
-.text-5 {
-    animation-delay: 1.8s;
-}
-
-.text-6 {
-    animation-delay: 2.1s;
-}
-
-.text-7 {
-    animation-delay: 2.4s;
-}
-
-
+/* Bulan bagian bawah - ukuran lebih besar */
 .moon-bottom {
     position: absolute;
     top: -350px;
     left: 50%;
     transform: translateX(-50%) translateY(-5%);
-    width: 1000px;
-    height: 1000px;
+    width: 1000px; 
+    height: 1000px; 
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: 1;
+    z-index: 1; 
     overflow: visible;
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
-    transition: all 0.5s ease;
+    transition: all 0.5s ease; 
     pointer-events: none;
 }
 
-
+/* Awan - dengan transisi untuk pergerakan halus */
 .cloud {
     position: absolute;
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
-    z-index: 2;
-    transition: transform 0.5s ease;
+    z-index: 2; 
+    transition: transform 0.5s ease; 
     will-change: transform, opacity;
     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 .cloud-right {
-    background-image: url('../assets/%%URL16%%');
+    background-image: url('../assets/awan-kanan.png');
     transform: translateX(5%);
 }
 
 .cloud-left {
-    background-image: url('../assets/%%URL17%%');
+    background-image: url('../assets/awan-kiri.png');
     transform: translateX(-5%);
 }
 
@@ -710,70 +587,41 @@ body {
     right: 0;
 }
 
-
+/* Container untuk awan */
 .clouds-container {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 400px;
-    z-index: 5;
+    z-index: 5; 
     left: 0;
-    right: 0;
-    overflow: visible;
+    right: 0; 
+    overflow: visible; 
 }
-
 @keyframes cloudInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0.3;
-    }
-
-    100% {
-        transform: translateX(-5%);
-        opacity: 1;
-    }
+    0% { transform: translateX(-100%); opacity: 0.3; }
+    100% { transform: translateX(-5%); opacity: 1; }
 }
 
-
+/* Animasi untuk awan masuk dari kanan */
 @keyframes cloudInRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0.3;
-    }
-
-    100% {
-        transform: translateX(5%);
-        opacity: 1;
-    }
+    0% { transform: translateX(100%); opacity: 0.3; }
+    100% { transform: translateX(5%); opacity: 1; }
 }
 
-
+/* Animasi untuk awan keluar ke kiri */
 @keyframes cloudOutLeft {
-    0% {
-        transform: translateX(-5%);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-100%);
-        opacity: 0.3;
-    }
+    0% { transform: translateX(-5%); opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0.3; }
 }
 
-
+/* Animasi untuk awan keluar ke kanan */
 @keyframes cloudOutRight {
-    0% {
-        transform: translateX(5%);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(100%);
-        opacity: 0.3;
-    }
+    0% { transform: translateX(5%); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0.3; }
 }
 
-
+/* Kelas untuk animasi - akan ditambahkan dinamis via JavaScript */
 .cloud-in-left {
     animation: cloudInLeft 1.2s ease-out forwards;
 }
@@ -789,8 +637,7 @@ body {
 .cloud-out-right {
     animation: cloudOutRight 1.2s ease-out forwards;
 }
-
-
+/* Judul Utama - kini di kanan atas sesuai gambar */
 .main-title {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -807,27 +654,26 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-
+/* Animasi judul muncul dari atas */
 @keyframes slideDown {
     0% {
         opacity: 0;
         transform: translateY(-30px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
+/* Bagian Konten */
 .content-section {
     position: relative;
     min-height: 100vh;
     background: linear-gradient(to bottom, #0a0a2a, #1a1a4a);
     padding: 50px 10%;
-    padding-top: 400px;
-    z-index: 2;
+    padding-top: 400px; 
+    z-index: 2; 
     margin-top: 0;
 }
 
@@ -836,10 +682,9 @@ body {
     font-size: 2.5rem;
     margin-bottom: 30px;
     text-align: center;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
     z-index: 3;
 }
-
 .left {
     left: 0;
 }
@@ -853,39 +698,37 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-
-    .stars-container,
-    .stars-container-row2 {
+    .stars-container, .stars-container-row2 {
         width: 90%;
         flex-wrap: wrap;
     }
-
+    
     .main-star {
         margin: 50px;
     }
-
+    
     .cloud {
         transform: scale(0.5);
     }
-
+    
     .cloud-1 {
         left: -40px;
     }
-
+    
     .cloud-3 {
         right: -40px;
     }
-
+    
     .main-title {
         right: 10%;
         font-size: 2rem;
     }
 
-
+    
     .right {
         left: 0;
     }
-
+    
     .moon-bottom {
         width: 600px;
         height: 600px;

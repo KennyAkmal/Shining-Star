@@ -7,14 +7,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px; /* Added padding for better spacing */
 }
 
-
+/* Logo positioned at top-left */
 .section-3 .logo {
     position: absolute;
     top: 60px;
-    left: 10%;
+    left: 10%; /* Changed from right to left */
     z-index: 10;
     opacity: 0;
     transform: translateY(30px);
@@ -26,18 +26,18 @@
     transform: translateY(0);
 }
 
-
+/* Special Letter Container - centered and raised */
 .special-letter-container {
     display: flex;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1600px; /* Increased from 1200px */
     z-index: 2;
-    gap: 10%;
+    gap: 10%; /* Increased from 13% */
     align-items: start;
-    margin-top: -80px;
+    margin-top: -80px; /* Raise the entire container */
 }
 
-
+/* Layout untuk dua kolom */
 .special-letter-container.single {
     justify-content: space-between;
 }
@@ -47,7 +47,7 @@
     max-width: 100%;
 }
 
-
+/* Letter Side (Tengah) - EXPANDED SPACE */
 .letter-side {
     flex: 1;
     display: flex;
@@ -56,25 +56,25 @@
     justify-content: center;
     text-align: start;
     color: white;
-    padding: 60px 40px;
-    margin-top: 5%;
-    min-width: 500px;
+    padding: 60px 40px; /* Added generous padding */
+    margin-top: 5%; /* Added horizontal margin */
+    min-width: 500px; /* Added minimum width */
 }
 
-
+/* Letter content styling */
 .letter-content {
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-size: 1.5rem;
-    line-height: 1.8;
+    line-height: 1.8; /* Increased from 1.6 for more vertical space */
     color: rgba(255, 255, 255, 0.9);
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
     text-align: left;
-    max-width: 600px;
+    max-width: 600px; /* Increased from 500px *//* Added bottom margin */
 }
 
 .letter-content.fade-in {
@@ -83,7 +83,7 @@
 }
 
 .letter-image {
-    max-width: 450px;
+    max-width: 450px; /* Increased from 400px */
     width: 100%;
     height: auto;
     opacity: 0;
@@ -101,17 +101,17 @@
     transform: translateY(0) scale(1);
 }
 
-
+/* Optimized Hover Effect */
 .letter-image:hover {
     transform: translateY(0) scale(1.05);
     filter: brightness(1.1) saturate(1.2);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-
+/* Container untuk gambar hover yang smooth */
 .letter-image-container {
     position: relative;
-    display: inline-block;
+    display: inline-block; /* Reduced negative margin for more space */
 }
 
 .letter-image-container::before {
@@ -121,7 +121,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../fanart/%%URL5%%");
+    background-image: url("../fanart/amplop1.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -146,11 +146,11 @@
     color: white;
     font-size: 2rem;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin: 0 0 40px 0;
+    margin: 0 0 40px 0; /* Increased bottom margin from 40px */
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-    align-items: start;
+    align-items:start;
     justify-content: start;
     text-align: start;
 }
@@ -160,7 +160,7 @@
     transform: translateY(0);
 }
 
-
+/* Envelope title - centered under the image */
 .envelope-title {
     color: white;
     font-size: 1.8rem;
@@ -169,7 +169,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
-    text-align: center;
+    text-align: center; /* Center the envelope title */
 }
 
 .envelope-title.fade-in {
@@ -177,7 +177,7 @@
     transform: translateY(0);
 }
 
-
+/* Letter envelope section wrapper */
 .letter-envelope-section {
     display: flex;
     flex-direction: column;
@@ -185,17 +185,17 @@
     justify-content: center;
 }
 
-
+/* Parallax Fade Effects */
 .parallax-fade {
     will-change: opacity, transform;
 }
 
-
+/* Loading state untuk mencegah flash */
 .letter-image[src=""] {
     opacity: 0;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .section-3 {
         padding: 20px 15px;
@@ -209,10 +209,10 @@
 
     .special-letter-container {
         flex-direction: column;
-        gap: 40px;
+        gap: 40px; /* Increased from 30px */
         text-align: center;
-        padding: 30px 20px;
-        margin-top: -60px;
+        padding: 30px 20px; /* Increased padding */
+        margin-top: -60px; /* Adjusted for mobile */
     }
 
     .special-letter-container.single .letter-side {
@@ -220,16 +220,16 @@
     }
 
     .letter-side {
-        padding: 40px 20px;
+        padding: 40px 20px; /* Reduced but still generous for mobile */
         margin: 0 10px;
-        min-width: unset;
+        min-width: unset; /* Remove min-width for mobile */
     }
 
     .letter-image {
-        max-width: 320px;
+        max-width: 320px; /* Increased from 280px */
         width: 320px;
         transform: translateY(30px) scale(1);
-        margin-top: -10px;
+        margin-top: -10px; /* Less negative margin */
         margin-bottom: 15px;
     }
 
@@ -248,7 +248,7 @@
 
     .letter-title {
         font-size: 2rem;
-        margin-bottom: 30px;
+        margin-bottom: 30px; /* Increased from 20px */
         text-align: center;
     }
 
@@ -285,7 +285,7 @@
     }
 
     .letter-image {
-        max-width: 260px;
+        max-width: 260px; /* Increased from 230px */
         width: 260px;
         margin-top: -5px;
         margin-bottom: 10px;
