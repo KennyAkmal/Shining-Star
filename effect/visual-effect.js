@@ -982,3 +982,614 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(banner);
     }
 });
+// Enhanced YouTube Video Player with Better Embed Handling
+const videoConfig = {
+    youtubeId: 'ib8DHcaTFag',
+    customBorderImage: 'assets/video-border.png',
+    starCount: 30,
+    fallbackToNewTab: true,
+    showEmbedWarning: true,
+    customThumbnail: null,
+    // Enhanced settings
+    enablePrivacyMode: true,
+    enableAutoplay: true,
+    enableControls: true
+};
+
+// Initialize Section 4 Animations
+function initializeVideoSection() {
+    console.log('🎬 Initializing Enhanced Video Section...');
+    createVideoStars();
+    setupVideoAnimations();
+    setupEnhancedVideoPlayer();
+    preloadVideoThumbnail();
+}
+
+// Enhanced video player with multiple fallback strategies
+function setupEnhancedVideoPlayer() {
+    const playButton = document.getElementById('playButton');
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    const videoFrame = document.getElementById('videoFrame');
+
+    if (!playButton || !videoPlaceholder) {
+        console.warn('Required video elements not found');
+        return;
+    }
+
+    // Enhanced play button handler
+    playButton.addEventListener('click', function() {
+        handleEnhancedVideoPlay();
+    });
+
+    // Add visual feedback on hover
+    if (typeof gsap !== 'undefined' && videoFrame) {
+        videoFrame.addEventListener('mouseenter', function() {
+            gsap.to(this, {
+                scale: 1.02,
+                boxShadow: "0 30px 60px rgba(0, 0, 0, 0.6), 0 0 80px rgba(255, 255, 255, 0.2)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+
+        videoFrame.addEventListener('mouseleave', function() {
+            gsap.to(this, {
+                scale: 1,
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 255, 255, 0.1)",
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    }
+}
+
+// Enhanced video play handler with multiple strategies
+function handleEnhancedVideoPlay() {
+    console.log('🎬 Attempting enhanced video play...');
+    
+    // Strategy 1: Direct embed (most compatible)
+    tryDirectEmbed()
+        .then(success => {
+            if (success) {
+                console.log('✅ Direct embed successful');
+                return;
+            }
+            // Strategy 2: Privacy-enhanced embed
+            return tryPrivacyEnhancedEmbed();
+        })
+        .then(success => {
+            if (success) {
+                console.log('✅ Privacy-enhanced embed successful');
+                return;
+            }
+            // Strategy 3: YouTube API embed
+            return tryYouTubeAPIEmbed();
+        })
+        .then(success => {
+            if (success) {
+                console.log('✅ YouTube API embed successful');
+                return;
+            }
+            // Final fallback: Open in new tab
+            console.log('❌ All embed strategies failed, opening in new tab');
+            showEnhancedFallbackMessage();
+            setTimeout(() => {
+                openVideoInNewTab();
+            }, 1500);
+        })
+        .catch(error => {
+            console.error('Error in video play:', error);
+            showEnhancedFallbackMessage();
+            setTimeout(() => {
+                openVideoInNewTab();
+            }, 1500);
+        });
+}
+
+// Strategy 1: Direct embed with enhanced parameters
+function tryDirectEmbed() {
+    return new Promise((resolve) => {
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        
+        if (!youtubePlayer || !videoPlaceholder) {
+            resolve(false);
+            return;
+        }
+
+        // Enhanced embed URL with better compatibility
+        const embedUrl = buildEnhancedEmbedUrl(videoConfig.youtubeId, {
+            autoplay: videoConfig.enableAutoplay ? 1 : 0,
+            controls: videoConfig.enableControls ? 1 : 0,
+            modestbranding: 1,
+            rel: 0,
+            fs: 1,
+            cc_load_policy: 0,
+            iv_load_policy: 3,
+            playsinline: 1,
+            enablejsapi: 1,
+            origin: window.location.origin
+        });
+
+        // Test if embed works
+        testEmbedUrl(embedUrl)
+            .then(canEmbed => {
+                if (canEmbed) {
+                    playVideoWithAnimation(youtubePlayer, videoPlaceholder, embedUrl);
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch(() => resolve(false));
+    });
+}
+
+// Strategy 2: Privacy-enhanced embed (YouTube-nocookie)
+function tryPrivacyEnhancedEmbed() {
+    return new Promise((resolve) => {
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        
+        if (!youtubePlayer || !videoPlaceholder) {
+            resolve(false);
+            return;
+        }
+
+        // Use YouTube-nocookie domain for better privacy and compatibility
+        const embedUrl = buildEnhancedEmbedUrl(videoConfig.youtubeId, {
+            autoplay: videoConfig.enableAutoplay ? 1 : 0,
+            controls: videoConfig.enableControls ? 1 : 0,
+            modestbranding: 1,
+            rel: 0,
+            fs: 1,
+            cc_load_policy: 0,
+            iv_load_policy: 3,
+            playsinline: 1,
+            enablejsapi: 1,
+            origin: window.location.origin
+        }, true); // Use nocookie domain
+
+        testEmbedUrl(embedUrl)
+            .then(canEmbed => {
+                if (canEmbed) {
+                    playVideoWithAnimation(youtubePlayer, videoPlaceholder, embedUrl);
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch(() => resolve(false));
+    });
+}
+
+// Strategy 3: YouTube API embed
+function tryYouTubeAPIEmbed() {
+    return new Promise((resolve) => {
+        // This would require YouTube API key - simplified version
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        
+        if (!youtubePlayer || !videoPlaceholder) {
+            resolve(false);
+            return;
+        }
+
+        // Fallback to basic embed with different parameters
+        const embedUrl = `https://www.youtube.com/embed/${videoConfig.youtubeId}?${new URLSearchParams({
+            autoplay: videoConfig.enableAutoplay ? '1' : '0',
+            mute: '1', // Mute for better autoplay compatibility
+            controls: '1',
+            showinfo: '0',
+            rel: '0',
+            fs: '1',
+            playsinline: '1'
+        }).toString()}`;
+
+        testEmbedUrl(embedUrl)
+            .then(canEmbed => {
+                if (canEmbed) {
+                    playVideoWithAnimation(youtubePlayer, videoPlaceholder, embedUrl);
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch(() => resolve(false));
+    });
+}
+
+// Build enhanced embed URL
+function buildEnhancedEmbedUrl(videoId, params, useNoCookie = false) {
+    const domain = useNoCookie ? 'https://www.youtube-nocookie.com' : 'https://www.youtube.com';
+    const baseUrl = `${domain}/embed/${videoId}`;
+    const urlParams = new URLSearchParams(params);
+    return `${baseUrl}?${urlParams.toString()}`;
+}
+
+// Test if embed URL works
+function testEmbedUrl(embedUrl) {
+    return new Promise((resolve) => {
+        const testFrame = document.createElement('iframe');
+        testFrame.style.cssText = `
+            position: absolute;
+            top: -1000px;
+            left: -1000px;
+            width: 1px;
+            height: 1px;
+            visibility: hidden;
+            border: none;
+        `;
+        
+        testFrame.src = embedUrl;
+        
+        let resolved = false;
+        const timeout = setTimeout(() => {
+            if (!resolved) {
+                resolved = true;
+                cleanup();
+                resolve(false);
+            }
+        }, 2000);
+
+        function cleanup() {
+            clearTimeout(timeout);
+            if (document.body.contains(testFrame)) {
+                document.body.removeChild(testFrame);
+            }
+        }
+
+        testFrame.onload = () => {
+            if (!resolved) {
+                resolved = true;
+                cleanup();
+                resolve(true);
+            }
+        };
+
+        testFrame.onerror = () => {
+            if (!resolved) {
+                resolved = true;
+                cleanup();
+                resolve(false);
+            }
+        };
+
+        document.body.appendChild(testFrame);
+    });
+}
+
+// Play video with smooth animation
+function playVideoWithAnimation(youtubePlayer, videoPlaceholder, embedUrl) {
+    const playButton = document.getElementById('playButton');
+    
+    if (typeof gsap !== 'undefined') {
+        // Animate play button
+        gsap.to(playButton, {
+            scale: 0,
+            rotation: 180,
+            duration: 0.3,
+            ease: "back.in(1.7)",
+            onComplete: () => {
+                gsap.to(videoPlaceholder, {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        videoPlaceholder.style.display = 'none';
+                        youtubePlayer.style.display = 'block';
+                        youtubePlayer.src = embedUrl;
+                        
+                        gsap.fromTo(youtubePlayer, 
+                            { opacity: 0, scale: 0.9 },
+                            { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
+                        );
+                    }
+                });
+            }
+        });
+    } else {
+        // Fallback without GSAP
+        videoPlaceholder.style.display = 'none';
+        youtubePlayer.style.display = 'block';
+        youtubePlayer.src = embedUrl;
+    }
+}
+
+// Enhanced fallback message
+function showEnhancedFallbackMessage() {
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    const playButton = document.getElementById('playButton');
+    
+    // Remove existing fallback message
+    const existingMessage = document.getElementById('fallbackMessage');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    const fallbackDiv = document.createElement('div');
+    fallbackDiv.id = 'fallbackMessage';
+    fallbackDiv.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 25px 30px;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 100;
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        max-width: 300px;
+    `;
+    
+    fallbackDiv.innerHTML = `
+        <div style="font-size: 24px; margin-bottom: 15px;">🎬</div>
+        <div style="font-size: 18px; margin-bottom: 10px; font-weight: bold;">Video Sedang Dimuat</div>
+        <div style="font-size: 14px; opacity: 0.9; line-height: 1.4;">Video tidak dapat diputar di halaman ini.<br>Membuka di YouTube...</div>
+        <div style="margin-top: 15px;">
+            <div style="width: 30px; height: 3px; background: rgba(255,255,255,0.3); border-radius: 3px; margin: 0 auto; overflow: hidden;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(90deg, transparent, white, transparent); animation: loading 1.5s infinite;"></div>
+            </div>
+        </div>
+    `;
+    
+    // Add loading animation CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    videoPlaceholder.appendChild(fallbackDiv);
+    
+    // Animate fallback message
+    if (typeof gsap !== 'undefined') {
+        gsap.fromTo(fallbackDiv, 
+            { opacity: 0, scale: 0.8, y: 20 },
+            { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" }
+        );
+        
+        gsap.to(playButton, {
+            opacity: 0.3,
+            scale: 0.9,
+            duration: 0.3
+        });
+    }
+}
+
+// Preload video thumbnail for better UX
+function preloadVideoThumbnail() {
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoConfig.youtubeId}/maxresdefault.jpg`;
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    
+    if (videoPlaceholder && !videoConfig.customThumbnail) {
+        const img = new Image();
+        img.onload = () => {
+            videoPlaceholder.style.backgroundImage = `url('${thumbnailUrl}')`;
+            videoPlaceholder.style.backgroundSize = 'cover';
+            videoPlaceholder.style.backgroundPosition = 'center';
+        };
+        img.onerror = () => {
+            // Fallback to hqdefault if maxresdefault fails
+            const fallbackUrl = `https://img.youtube.com/vi/${videoConfig.youtubeId}/hqdefault.jpg`;
+            videoPlaceholder.style.backgroundImage = `url('${fallbackUrl}')`;
+            videoPlaceholder.style.backgroundSize = 'cover';
+            videoPlaceholder.style.backgroundPosition = 'center';
+        };
+        img.src = thumbnailUrl;
+    }
+}
+
+// Create animated background stars (unchanged)
+function createVideoStars() {
+    const starsContainer = document.getElementById('videoStars');
+    if (!starsContainer) {
+        console.warn('Video stars container not found');
+        return;
+    }
+
+    starsContainer.innerHTML = '';
+
+    for (let i = 0; i < videoConfig.starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'video-star';
+        
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const opacity = Math.random() * 0.8 + 0.2;
+        
+        star.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}%;
+            top: ${y}%;
+            opacity: ${opacity};
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 ${Math.random() * 10 + 5}px rgba(255,255,255,0.8);
+            pointer-events: none;
+        `;
+        
+        starsContainer.appendChild(star);
+    }
+
+    if (typeof gsap !== 'undefined') {
+        gsap.to('.video-star', {
+            opacity: 0.2,
+            scale: 0.5,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            stagger: {
+                amount: 2,
+                from: "random"
+            }
+        });
+    }
+}
+
+// Setup GSAP animations (unchanged)
+function setupVideoAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP or ScrollTrigger not available');
+        return;
+    }
+
+    gsap.set('.fade-in-up', { opacity: 0, y: 50 });
+    gsap.set('.fade-in-scale', { opacity: 0, scale: 0.8 });
+
+    const videoTimeline = gsap.timeline({ paused: true });
+
+    const videoTitle = document.getElementById('videoTitle');
+    if (videoTitle) {
+        videoTimeline.to('#videoTitle', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+    }
+
+    const videoContainer = document.getElementById('videoContainer');
+    if (videoContainer) {
+        videoTimeline.to('#videoContainer', {
+            opacity: 1,
+            scale: 1,
+            duration: 1.2,
+            ease: "back.out(1.7)"
+        }, "-=0.5");
+    }
+
+    const videoDescription = document.getElementById('videoDescription');
+    if (videoDescription) {
+        videoTimeline.to('#videoDescription', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.3");
+    }
+
+    ScrollTrigger.create({
+        trigger: '#videoSection',
+        start: 'top 80%',
+        onEnter: () => videoTimeline.restart(),
+        onEnterBack: () => videoTimeline.restart()
+    });
+
+    ScrollTrigger.create({
+        trigger: '#videoSection',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            gsap.set('.video-star', {
+                y: progress * -50,
+                opacity: 1 - (progress * 0.5)
+            });
+        }
+    });
+}
+
+// Open video in new tab with better UX
+function openVideoInNewTab() {
+    const youtubeUrl = `https://www.youtube.com/watch?v=${videoConfig.youtubeId}`;
+    window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
+    
+    setTimeout(() => {
+        const fallbackMessage = document.getElementById('fallbackMessage');
+        const playButton = document.getElementById('playButton');
+        
+        if (fallbackMessage) {
+            if (typeof gsap !== 'undefined') {
+                gsap.to(fallbackMessage, {
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.3,
+                    onComplete: () => fallbackMessage.remove()
+                });
+                
+                gsap.to(playButton, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.3
+                });
+            } else {
+                fallbackMessage.remove();
+            }
+        }
+    }, 3000);
+}
+
+// Utility functions
+function changeYouTubeVideo(newVideoId) {
+    videoConfig.youtubeId = newVideoId;
+    const youtubePlayer = document.getElementById('youtubePlayer');
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    
+    if (youtubePlayer && videoPlaceholder) {
+        youtubePlayer.style.display = 'none';
+        youtubePlayer.src = '';
+        videoPlaceholder.style.display = 'block';
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.set(videoPlaceholder, { opacity: 1 });
+            gsap.set('#playButton', { scale: 1, rotation: 0, opacity: 1 });
+        }
+        
+        // Preload new thumbnail
+        preloadVideoThumbnail();
+    }
+    console.log(`🎬 Video changed to: ${newVideoId}`);
+}
+
+function setCustomBorderImage(imagePath) {
+    videoConfig.customBorderImage = imagePath;
+    const videoBorderOverlay = document.getElementById('videoBorderOverlay');
+    
+    if (videoBorderOverlay) {
+        videoBorderOverlay.style.backgroundImage = `url('${imagePath}')`;
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo(videoBorderOverlay, 
+                { opacity: 0, scale: 0.95 },
+                { opacity: 0.8, scale: 1, duration: 0.5, ease: "power2.out" }
+            );
+        }
+    }
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        initializeVideoSection();
+    }, 100);
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+    }
+});
+
+// Global API
+window.VideoSection = {
+    changeVideo: changeYouTubeVideo,
+    setBorderImage: setCustomBorderImage,
+    reinitialize: initializeVideoSection,
+    config: videoConfig
+};
+
+window.videoConfig = videoConfig;
