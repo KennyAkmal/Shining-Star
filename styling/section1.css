@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -639,11 +639,12 @@ body {
 }
 /* Judul Utama - kini di kanan atas sesuai gambar */
 .main-title {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
     font-style: normal;
     position: absolute;
     margin-top: 50px;
+    font-optical-sizing: auto;
     right: 5%;
     transform: translateY(-30px);
     color: white;

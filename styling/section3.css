@@ -67,6 +67,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: 100px;
     font-size: 1.5rem;
     line-height: 1.8; /* Increased from 1.6 for more vertical space */
     color: rgba(255, 255, 255, 0.9);
@@ -144,6 +145,7 @@
     font-weight: 700;
     font-style: normal;
     color: white;
+    margin-top: 50px;
     font-size: 2rem;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     margin: 0 0 40px 0; /* Increased bottom margin from 40px */
@@ -179,6 +181,7 @@
 
 /* Letter envelope section wrapper */
 .letter-envelope-section {
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;

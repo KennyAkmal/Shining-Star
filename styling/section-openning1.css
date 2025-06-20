@@ -47,8 +47,8 @@
     transform-origin: center center;
 }
 .anniversary-title h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
     font-style: normal;
     color: white;
     font-size: 5rem;
@@ -61,8 +61,8 @@
 }
 
 .anniversary-title h2 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
     font-style: normal;
     font-size: 4rem;
     margin: 20px 0 0 0;
