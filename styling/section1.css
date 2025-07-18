@@ -637,7 +637,6 @@ body {
 .cloud-out-right {
     animation: cloudOutRight 1.2s ease-out forwards;
 }
-/* Judul Utama - kini di kanan atas sesuai gambar */
 .main-title {
     font-family: "Nunito", sans-serif;
     font-weight: 900;

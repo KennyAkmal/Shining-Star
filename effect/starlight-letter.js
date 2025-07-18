@@ -205,7 +205,7 @@ const categoryData = {
             "Akasyah",
         ],
         images: [
-            null, // Rakenn
+            "gift/fanart/rakenn-gift.png", // Rakenn
             "fanart/fanart-izall.png", // Izall
             null, // Rama
             null, // surya

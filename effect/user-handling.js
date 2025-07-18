@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // === ENHANCED IMAGE VIEWER FUNCTIONALITY WITH GSAP ===
     function createImageViewer() {
         const imageViewer = document.createElement('div');
         imageViewer.id = 'imageViewer';
@@ -345,7 +344,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return imageViewer;
     }
 
-    // === ENHANCED GSAP BUTTON ANIMATIONS ===
     function initializeButtonAnimations() {
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
@@ -515,7 +513,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // === ENHANCED IMAGE TRANSITION ANIMATIONS ===
     function animateImageTransition(direction, callback) {
         const viewerImage = document.querySelector('.image-viewer-image');
         const viewerTitle = document.querySelector('.image-viewer-title');
@@ -564,7 +561,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }, "-=0.2");
     }
 
-    // === ENHANCED NAVIGATION FUNCTIONS ===
     function showNextImage() {
         if (currentIndex < currentImages.length - 1) {
             animateImageTransition('next', () => {
@@ -593,7 +589,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // === ENHANCED BUTTON STATE MANAGEMENT ===
     function updateNavigationButtons() {
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
@@ -636,7 +631,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // === INITIALIZATION ===
     document.addEventListener('DOMContentLoaded', function () {
         createImageViewer();
         setTimeout(() => {
@@ -1022,7 +1016,7 @@ document.addEventListener('DOMContentLoaded', function () {
             prevBtn.disabled = currentIndex === 0;
         }
     }
-    // === PHOTO DATA ===
+
     const photoData = {
         'photo-group-1': {
             title: 'Fan Art Gallery',
@@ -1054,7 +1048,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // === PHOTO CARDS FUNCTIONALITY ===
     document.querySelectorAll('.polaroid-stack').forEach((stack, groupIndex) => {
         const photoGroup = stack.closest('.photo-group');
         photoGroup.id = `photo-group-${groupIndex + 1}`;
@@ -1106,7 +1099,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // === ARTIST CARDS FUNCTIONALITY ===
     document.querySelectorAll('.artist-card').forEach((card, index) => {
         card.addEventListener('click', function () {
             const artistName = this.querySelector('.artist-name').textContent.replace('Artist : ', '');
@@ -1120,7 +1112,6 @@ document.addEventListener('DOMContentLoaded', function () {
         card.style.cursor = 'pointer';
     });
 
-    // === STAR DATA ===
     const starData = {
         'star-1': {
             title: 'Debut Stream',
@@ -1153,8 +1144,6 @@ document.addEventListener('DOMContentLoaded', function () {
             description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit per fermentum porta, blandit congue quam habitant penatibus egestas lobortis etiam accumsan, lacinia mattis faucibus euismod dui interdum nam cras bibendum.'
         }
     };
-
-    // === STAR CARD FUNCTIONALITY ===
     const cardContainer = document.getElementById('starCardContainer');
     const cardTitle = document.getElementById('cardTitle');
     const cardImage = document.getElementById('cardImage');
@@ -1350,7 +1339,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hideStarCard();
         }
     });
-    // === SECTION 3 FUNCTIONALITY ===
+
     const preloadImages = () => {
         const images = ['fanart/amplop.png', 'fanart/amplop1.png'];
         images.forEach(src => {
@@ -1386,7 +1375,6 @@ document.addEventListener('DOMContentLoaded', function () {
         section3Observer.observe(section3);
     }
 
-    // === OPTIMIZED IMAGE HOVER HANDLING ===
     const letterImage = document.getElementById('letterImage');
     if (letterImage) {
         const container = document.createElement('div');
@@ -1419,8 +1407,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-
-// === ENHANCED SCROLL PARALLAX FOR SECTION 3 ===
 window.addEventListener('scroll', function () {
     const section3 = document.querySelector('.section-3');
     const letterImage = document.getElementById('letterImage');
@@ -1460,8 +1446,6 @@ window.addEventListener('scroll', function () {
         }
     }
 });
-
-// === PERFORMANCE OPTIMIZATION ===
 function throttle(func, limit) {
     let inThrottle;
     return function () {

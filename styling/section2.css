@@ -185,18 +185,23 @@
     animation: cardPulseTeamArt 2s infinite;
 }
 
-        /* Menambah jarak antar artists */
 .artists-row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 80px; /* Ditingkatkan dari 60px */
+    margin-top: 80px;
     position: relative;
     z-index: 6;
-    padding-bottom: 80px; /* Menambah padding di bawah */
+    padding-bottom: 80px;
 }
 
-/* Artist Card dengan foto 1:1 */
+.photo-row,
+.artists-row {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
 .artist-card {
     width: 18%;
     z-index: 6;
